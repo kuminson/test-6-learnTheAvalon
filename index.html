@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>learn the avalon</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--[if IE]>
+	<script src="js/IE.js"></script>
+	<![endif]-->
+	<script type="text/javascript" src="js/avalon.js"></script>
+	<script type="text/javascript">
+		var vm = avalon.define({
+			$id: "test",
+			lili: "这是个测试!",
+			bili:"test for ie9 and ie10"
+		});
+	</script>
+	<style type="text/css">
+		.div1{
+			width: 200px;
+			height: 200px;
+			background-color: orange;
+			border-radius: 30px;
+			background-image: url(img/2习惯的力量.png);
+			background-position: -100px 0 ;
+		}
+		.div2{
+			width: 200px;
+			height: 200px;
+			background-color: orange;
+			border-radius: 30px;
+			background-image: url(img/2习惯的力量.png);
+		}
+		.ms-controller{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">111</div>
+	<div class="div2">222</div>
+	<div class="div" ms-controller="test">
+		<p>{{@lili}}</p>
+		<span>{{@bili}}</span>
+	</div>
+
+</body>
+</html>
