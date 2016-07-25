@@ -12,7 +12,18 @@
 		var vm = avalon.define({
 			$id: "test",
 			lili: "这是个测试!",
-			bili:"test for ie9 and ie10"
+			bili:"test for ie9 and ie10",
+			ft:30,
+			ftt: "20px"
+		});
+
+		var vmclass = avalon.define({
+			$id: "ms_class",
+			toggle: true,
+			classa: "class_red",
+			classb: "class_blue",
+			classc: "class_yellow",
+			classd: "class_size"
 		});
 	</script>
 	<style type="text/css">
@@ -34,14 +45,34 @@
 		.ms-controller{
 			display: none;
 		}
+		.class_red{
+			color: red;
+		}
+		.class_blue{
+			color: blue;
+		}
+		.class_yellow{
+			color: yellow;
+		}
+		.class_size{
+			font-size: 30px;
+		}
 	</style>
 </head>
 <body>
 	<div class="div1">111</div>
 	<div class="div2">222</div>
 	<div class="div" ms-controller="test">
-		<p>{{@lili}}</p>
-		<span>{{@bili}}</span>
+		<p ms-css="{'font-size': @ft+'px'}">{{@lili}}</p>
+		<span ms-css="{'font-size':@ftt}">{{@bili}}</span>
+	</div>
+	<br />
+	<!-- 测试类名 -->
+	<div ms-controller="ms_class">
+		<p ms-class="'class_yellow class_size'">应该是又大又黄{{@classa}} </p>
+		<p ms-class="{class_red:@toggle}" ms-click="@toggle = !@toggle">点我应该变色黑色</p>
+		<p ms-class="@classb">应该是蓝色的</p>
+		<p ms-class="[@classd,@toggle ? @classb : @classc]">应该是有大又蓝，点下上面变成有大又黄</p>
 	</div>
 
 </body>
